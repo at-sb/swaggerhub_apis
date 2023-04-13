@@ -1,0 +1,43 @@
+openapi: 3.0.0
+
+info:
+  title: sunruse sunset API
+  version: "1.0.0"
+  description: api to get sunrise and sunset based on location time date
+  
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/ANNATOPPING/Sunrise_Sunset_API/1.0.0
+  -   url: https://api.sunrisesunset.io/
+
+paths: 
+  /json:
+   get:
+    summary: returns sun data
+    parameters: 
+      - name: lat
+        in: query
+        required: true
+        description: lattitude value
+        schema: 
+         type: string
+      - name: lng
+        in: query
+        required: true
+        description: longitude value
+        schema: 
+         type: string
+      - name: date
+        in: query
+        required: true
+        description: date value
+        schema: 
+         type: string
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
